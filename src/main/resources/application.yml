@@ -1,0 +1,17 @@
+server:
+  port: 8090
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/luojia?useSSL=false&amp;characterEncoding=utf-8&amp;jdbcCompliantTruncation=false&amp;zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  type-aliases-package: com.yyf.www.luojia.bean
+  
+logging:
+  level:
+    org.springframework.web: DEBUG
