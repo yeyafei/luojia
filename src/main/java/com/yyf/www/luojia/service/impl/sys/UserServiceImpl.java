@@ -25,4 +25,33 @@ public class UserServiceImpl implements UserService {
 	public Collection<User> getAll() {
 		return userDao.findAll();
 	}
+
+	@Override
+	public User getUserByName(String name) {
+		return userDao.getUserByName(name);
+	}
+	
+	@Override
+	public User getUserById(int id) {
+		return userDao.getEntityById(id);
+	}
+
+	@Override
+	public Boolean add(User user ) {
+		return userDao.add(user);
+	}
+
+	@Override
+	public Boolean update(User user,int id) {
+		user.setId(id);
+		return userDao.update(user);
+	}
+
+	@Override
+	public Boolean delete(int id) {
+		return userDao.deleteById(id);
+	}
+
+
+
 }

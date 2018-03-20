@@ -3,7 +3,9 @@ package com.yyf.www.luojia.dao.sys;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import com.yyf.www.luojia.base.BaseDao;
 import com.yyf.www.luojia.bean.sys.User;
 
 
@@ -15,7 +17,14 @@ import com.yyf.www.luojia.bean.sys.User;
 * @version 1.0 
 */
 @Mapper
-public interface UserDao {
+public interface UserDao extends BaseDao<User>{
 	public  List<User> findAll();
+	/**
+	 * search:name->user
+	 * @param name
+	 * @return
+	 */
+	public User getUserByName(@Param("name") String name);
+	
 }
 
