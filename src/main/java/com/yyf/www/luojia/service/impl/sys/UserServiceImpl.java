@@ -1,10 +1,11 @@
 package com.yyf.www.luojia.service.impl.sys;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yyf.www.luojia.base.BaseService;
 import com.yyf.www.luojia.bean.sys.User;
 import com.yyf.www.luojia.dao.sys.UserDao;
 import com.yyf.www.luojia.service.sys.UserService;
@@ -16,13 +17,13 @@ import com.yyf.www.luojia.service.sys.UserService;
  * @version 1.0
  */
 @Service(value = "userServiceImpl")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseService<User, UserDao> implements UserService  {
 
 	@Autowired
 	private UserDao userDao;
 
 	@Override
-	public Collection<User> getAll() {
+	public List<User> getAll() {
 		return userDao.findAll();
 	}
 
@@ -38,12 +39,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Boolean add(User user ) {
-		return userDao.add(user);
+		return	userDao.add(user);
+
 	}
 
 	@Override
 	public Boolean update(User user,int id) {
-		user.setId(id);
 		return userDao.update(user);
 	}
 
@@ -51,6 +52,7 @@ public class UserServiceImpl implements UserService {
 	public Boolean delete(int id) {
 		return userDao.deleteById(id);
 	}
+
 
 
 

@@ -1,10 +1,10 @@
 package com.yyf.www.luojia.bean.sys;
 
 
-import com.yyf.www.luojia.base.BaseBean;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import com.yyf.www.luojia.base.BaseBean;
 
 /**
  * @Description: TODO

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.yyf.www.luojia.beans.Results;
 import com.yyf.www.luojia.exceptions.CheckException;
-import com.yyf.www.luojia.exceptions.UnknownException;
+import com.yyf.www.luojia.exceptions.ReflectException;
 
 /**
  * @Description: aop 对异常信息捕获抛出自定义异常
@@ -49,10 +49,9 @@ public class ControllerAop {
 		Results<?> result = new Results<>();
 		if (e instanceof CheckException) {
 			result.setMsg(e.getLocalizedMessage());
-			result.setCode(Results.FAIL);
-		} else if (e instanceof UnknownException) {
-			logger.error(pjp.getSignature() + " error ", e);
-			result.setMsg(e.toString());
+			result.setCode(Results.FAIL); 
+		} else if (e instanceof ReflectException) {
+			result.setMsg(e.getLocalizedMessage());
 			result.setCode(Results.FAIL);
 		} else {
 			logger.error(pjp.getSignature() + " 未知异常 ", e);

@@ -2,7 +2,10 @@ package com.yyf.www.luojia.base;
 
 import java.io.Serializable;
 
+import com.yyf.www.luojia.core.V;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /** 
 * @Description: BaseEntity
@@ -11,7 +14,9 @@ import lombok.Data;
 * @version 1.0 
 */
 @Data
-public class BaseBean implements Serializable {
+@EqualsAndHashCode(callSuper=false)
+public class BaseBean extends V  implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 }
 

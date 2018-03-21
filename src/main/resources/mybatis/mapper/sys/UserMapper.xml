@@ -3,30 +3,34 @@
 <mapper namespace="com.yyf.www.luojia.dao.sys.UserDao">
 
 	<!-- 获取alluser -->
-	<select id="findAll" resultType="com.yyf.www.luojia.bean.sys.User">  
+	<select id="findAll" resultType="com.yyf.www.luojia.bean.sys.User">
 		select * from sys_user
 	</select>
-	
+
 	<select id="getEntityById" resultType="com.yyf.www.luojia.bean.sys.User">
-		select * from sys_user where id =#{id}
+		select * from sys_user
+		where id =#{id}
 	</select>
-	
+
 	<select id="getUserByName" resultType="com.yyf.www.luojia.bean.sys.User">
-		select * from sys_user where name =#{name}
+		select * from sys_user
+		where name =#{name}
 	</select>
-	
+
 	<insert id="add">
-		insert into sys_user(name,password) values (#{et.name},#{et.password})
+		insert into sys_user(name,password) values
+		(#{et.name},#{et.password})
 	</insert>
-	
+
 	<update id="update">
 		update sys_user set name = #{et.name},password = #{et.password}
-	<where>
-		id = #{et.id}
-	</where>
+		<where>
+			id = #{et.id}
+		</where>
 	</update>
-	
+
 	<delete id="deleteById">
-		delete from sys_user  where id =#{id}
+		delete from sys_user where id =#{id}
 	</delete>
+
 </mapper>

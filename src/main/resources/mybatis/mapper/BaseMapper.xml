@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyf.www.luojia.base.BaseDao">
+	<insert id="baseSave">
+	${sql}
+	</insert>
+	
+	<select id="baseSearch" resultType="hashmap">
+	${sql}
+	</select>
+	
+	<select id="baseParSelect" resultType="hashmap">
+	${sql}
+	</select>
+	
+	<delete id="baseParDel">
+	${sql}
+	</delete>
+	
+	<update id="baseUpdate">
+	${sql}
+	</update>
+</mapper>

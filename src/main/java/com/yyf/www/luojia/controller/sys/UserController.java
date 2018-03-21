@@ -4,7 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.yyf.www.luojia.bean.sys.User;
 import com.yyf.www.luojia.beans.Results;
 import com.yyf.www.luojia.service.sys.UserService;
@@ -36,9 +38,23 @@ public class UserController {
 
 	@ApiOperation(value = "查询所有用户", notes = "sys_user表中所有数据")
 	@GetMapping("/all")
-	public Results<Collection<User>> getAll() {
-		return new Results<Collection<User>>(userService.getAll());
+	public Results<List<User>> getAll() {
+		return new Results<List<User>>(userService.getAll());
 	}
+	
+	/**
+	 * GET方式简单分页
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	@ApiOperation(value = "查询分页用户", notes = "sys_user分页数据")
+	@GetMapping("/{pageNum}/{pageSize}")
+	public Results<PageInfo<User>> findByPage(@PathVariable int pageNum,@PathVariable int pageSize) {
+		PageHelper.startPage(pageNum,pageSize); 
+		return new Results<>(new PageInfo<User>(userService.getAll()));
+	}
+	
 
 	/**
 	 * 查找用户

@@ -1,6 +1,6 @@
 package com.yyf.www.luojia.service.sys;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.yyf.www.luojia.bean.sys.User;
 
@@ -10,9 +10,9 @@ import com.yyf.www.luojia.bean.sys.User;
 * @date    2018年3月19日 下午11:25:40 
 * @version 1.0 
 */
-public interface UserService   {
+public interface UserService  {
 
-	Collection<User> getAll();
+	List<User> getAll();
 
 	User getUserById(int id);
 	
@@ -23,6 +23,8 @@ public interface UserService   {
 	Boolean delete(int id);
 
 	Boolean update(User user, int id);
+
+	
 
 	
 

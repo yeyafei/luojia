@@ -15,3 +15,5 @@ mybatis:
 logging:
   level:
     org.springframework.web: DEBUG
+    com.yyf.www: DEBUG
+    
