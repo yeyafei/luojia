@@ -17,4 +17,4 @@ baseSave 实体类保存
 baseSearch 自定义查询
 baseParSelect 主键查询
 baseParDel 主键删除
-baseUpdate 主键更新ß
+baseUpdate 主键更新

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yyf.www.luojia.dao.sys.UserDao">
+	<resultMap id="userMap" type="com.yyf.www.luojia.bean.sys.User">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="password" column="password" />
+		<collection property="roles" ofType="com.yyf.www.luojia.bean.sys.Role">
+			<result property="role" column="role" />
+			<result property="name" column="name" />
+			<result property="modules" column="modules" />
+		</collection>
 
+	</resultMap>
 	<!-- 获取alluser -->
 	<select id="findAll" resultType="com.yyf.www.luojia.bean.sys.User">
 		select * from sys_user
@@ -12,9 +22,14 @@
 		where id =#{id}
 	</select>
 
-	<select id="getUserByName" resultType="com.yyf.www.luojia.bean.sys.User">
-		select * from sys_user
-		where name =#{name}
+	<select id="getUserByName" resultMap="userMap">
+		select u.*,r.*
+		from
+		sys_user u
+		LEFT JOIN sys_role_user sru on u.id= sru.sys_user_id
+		LEFT JOIN sys_role r on sru.sys_role_id=r.id
+		where u.name= #{name}
+
 	</select>
 
 	<insert id="add">

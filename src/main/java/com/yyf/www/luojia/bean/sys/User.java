@@ -1,10 +1,11 @@
 package com.yyf.www.luojia.bean.sys;
 
+import java.util.List;
+
+import com.yyf.www.luojia.base.BaseBean;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import com.yyf.www.luojia.base.BaseBean;
 
 /**
  * @Description: TODO
@@ -28,5 +29,9 @@ public class User extends BaseBean {
 	 * 密码
 	 */
 	private String password;
+	/**
+	 * 角色
+	 */
+	private List<Role> roles;
 
 }
