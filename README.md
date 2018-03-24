@@ -18,3 +18,6 @@ baseSearch 自定义查询
 baseParSelect 主键查询
 baseParDel 主键删除
 baseUpdate 主键更新
+
+#2018.3.24
+spring security初步使用 角色及权限控制
