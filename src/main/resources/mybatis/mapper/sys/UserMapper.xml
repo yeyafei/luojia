@@ -7,8 +7,7 @@
 		<result property="password" column="password" />
 		<collection property="roles" ofType="com.yyf.www.luojia.bean.sys.Role">
 			<result property="role" column="role" />
-			<result property="name" column="name" />
-			<result property="modules" column="modules" />
+			<result property="depict" column="depict"/>
 		</collection>
 
 	</resultMap>

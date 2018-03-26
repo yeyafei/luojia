@@ -28,14 +28,6 @@ public class Role extends BaseBean {
 	/**
 	 * 称号
 	 */
-	private String name;
-	/**
-	 * 权限
-	 */
-	private String modules;
-	/**
-	 * 描述
-	 */
 	private String depict;
 
 	public Role() {

@@ -21,3 +21,6 @@ baseUpdate 主键更新
 
 #2018.3.24
 spring security初步使用 角色及权限控制
+
+#2018.3.26
+完善spring security 数据库resultful权限管理方式

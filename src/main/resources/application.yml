@@ -16,4 +16,5 @@ logging:
   level:
     org.springframework.web: DEBUG
     com.yyf.www: DEBUG
+    org.springframework.security: INFO
     
